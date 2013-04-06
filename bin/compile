@@ -18,9 +18,6 @@ echo 'Getting tesseract-ocr training data'
 echo 'English training data'
 curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.eng.tar.gz \
   -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
-echo 'Japanese training data'
-curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.jpn.tar.gz \
-  -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
 
 echo "Building runtime environment for tesseract-ocr"
 mkdir -p $BUILD_DIR/.profile.d
