@@ -10,7 +10,7 @@ INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=${HOME}vendor/tesseract-ocr
 ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
 
-echo 'Getting Tesseract-ocr Binaries'
+echo "Getting Tesseract-ocr Binaries from $TESSERACT_OCR_REMOTE..."
 mkdir -p $INSTALL_DIR
 curl $TESSERACT_OCR_REMOTE -o - | tar -xz -C $INSTALL_DIR -f -
 
