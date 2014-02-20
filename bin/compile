@@ -11,6 +11,8 @@ INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
 ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
 
+TESSERACT_OCR_LANGUAGES=swe
+
 echo "Getting Tesseract-ocr Binaries from $TESSERACT_OCR_REMOTE..."
 mkdir -p $INSTALL_DIR
 curl $TESSERACT_OCR_REMOTE -o - | tar -xz -C $INSTALL_DIR -f -
@@ -20,9 +22,22 @@ echo 'English training data'
 curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.eng.tar.gz \
   -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
 
-echo 'Swedish training data'
-curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.swe.tar.gz \
+if [ $TESSERACT_OCR_LANGUAGES ]
+then
+   array=(${TESSERACT_OCR_LANGUAGES//,/ })
+   for i in "${!array[@]}"
+   do
+     lang="${array[i]}"
+     echo $lang 'training data'
+     curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.$lang.tar.gz \
   -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
+
+   done
+fi
+
+#echo 'Swedish training data'
+#curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.swe.tar.gz \
+#  -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
 
 echo "Building runtime environment for tesseract-ocr"
 mkdir -p $BUILD_DIR/.profile.d
