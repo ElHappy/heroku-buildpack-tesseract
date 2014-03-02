@@ -1,6 +1,6 @@
-heroku-buildpack-tesseract
+Heroku Buildpack - Tesseract
 ===========================
-Added the libraries to use Tesseract on Heroku
+Added the libraries to use Tesseract 3.02 on Heroku
 The buildpack supports several languages now.
 
 This buildpack is built to be used through [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi).
