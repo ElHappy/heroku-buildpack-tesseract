@@ -1,7 +1,7 @@
 heroku-buildpack-tesseract
 ===========================
 Added the libraries to use Tesseract on Heroku
-Added English and Swedish language support
+The buildpack supports several languages now.
 
 This buildpack is built to be used through [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi).
 In your app you need to:
