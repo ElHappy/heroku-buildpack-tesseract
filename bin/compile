@@ -1,7 +1,7 @@
 #!/bin/bash
 BUILD_DIR=$1
 TESSERACT_OCR_VERSION=3.04.01
-TESSERACT_OCR_DATA_VERSION=3.02
+TESSERACT_OCR_DATA_VERSION=3.04.00
 
 TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.gz
 
@@ -26,7 +26,7 @@ then
    do
      lang="${array[i]}"
      echo $lang 'training data'
-     curl -o $INSTALL_DIR_TRAINING_DATA/$lang.traineddata https://github.com/tesseract-ocr/tessdata/raw/$TESSERACT_OCR_DATA_VERSION/$lang.traineddata
+     curl https://raw.githubusercontent.com/tesseract-ocr/tessdata/$TESSERACT_OCR_DATA_VERSION/$lang.traineddata > $INSTALL_DIR_TRAINING_DATA/$lang.traineddata
    done
 fi
 
