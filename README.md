@@ -23,5 +23,5 @@ This fork upgrades Tesseract binary version from 3.03 to 3.04.01
 MIT License.
 
 Original work Copyright (c) 2013 Marco Azimonti  
-Modified work Copyright (c) 2015 Matteo Maggioni
+Modified work Copyright (c) 2015 Matteo Maggioni  
 Modified work Copyright (c) 2017 Oswell Chan
