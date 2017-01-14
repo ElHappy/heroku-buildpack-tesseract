@@ -1,20 +1,22 @@
 #!/bin/bash
 BUILD_DIR=$1
-TESSERACT_OCR_VERSION=3.04.01
 TESSERACT_OCR_DATA_VERSION=3.04.00
 
-TESSERACT_OCR_TGZ=tesseract-$TESSERACT_OCR_VERSION.tar.gz
+TESSERACT_LEPT_TGZ=tesseract-leptonica.tar.gz
 
-INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
+INSTALL_DIR=$BUILD_DIR/vendor/tesseract-lept/
 INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
-TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
-ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
+TESSERACT_LEPT_DIR=${HOME}/vendor/tesseract-lept
+ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-lept.sh
 
 TESSERACT_OCR_LANGUAGES=eng
 
+echo "Cleaning up previous installation"
+rm -f $TESSERACT_LEPT_DIR/**
+
 echo "Unpacking Tesseract-OCR binaries"
 mkdir -p $INSTALL_DIR
-tar -zxvf $TESSERACT_OCR_TGZ -C $INSTALL_DIR
+tar -zxvf $TESSERACT_LEPT_TGZ -C $INSTALL_DIR
 
 echo 'Getting Tesseract-OCR training data'
 if [ $TESSERACT_OCR_LANGUAGES ]
@@ -30,6 +32,6 @@ fi
 
 echo "Building runtime environment for Tesseract-OCR"
 mkdir -p $BUILD_DIR/.profile.d
-echo "export PATH=\"$TESSERACT_OCR_DIR/bin:\$PATH\"" > $ENVSCRIPT
-echo "export LD_LIBRARY_PATH=\"$TESSERACT_OCR_DIR/lib:\$LD_LIBRARY_PATH\"" >> $ENVSCRIPT
-echo "export TESSDATA_PREFIX=\"$TESSERACT_OCR_DIR/\"" >> $ENVSCRIPT
+echo "export PATH=\"$TESSERACT_LEPT_DIR/bin:\$PATH\"" > $ENVSCRIPT
+echo "export LD_LIBRARY_PATH=\"$TESSERACT_LEPT_DIR/lib:\$LD_LIBRARY_PATH\"" >> $ENVSCRIPT
+echo "export TESSDATA_PREFIX=\"$INSTALL_DIR_TRAINING_DATA/\"" >> $ENVSCRIPT
