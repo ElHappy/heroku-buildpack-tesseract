@@ -19,6 +19,7 @@ mkdir -p $INSTALL_DIR
 tar -zxvf $TESSERACT_OCR_TGZ -C $INSTALL_DIR
 
 echo 'Getting Tesseract-OCR training data'
+mkdir -p $INSTALL_DIR_TRAINING_DATA
 if [ $TESSERACT_OCR_LANGUAGES ]
 then
    array=(${TESSERACT_OCR_LANGUAGES//,/ })
