@@ -1,6 +1,6 @@
 # Heroku Buildpack Tesseract
 
-This package provides a custom Heroku buildpack providing the [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) binary and all the required libraries to Heroku apps. Training data for English language is provided.
+This package provides a custom Heroku buildpack providing the [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) binary and all the required libraries to Heroku apps. Training data for English and Spanish language is provided.
 
 ## Configuration
 

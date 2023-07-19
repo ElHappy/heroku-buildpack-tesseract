@@ -7,7 +7,7 @@ INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
 TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
 ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
 
-TESSERACT_OCR_LANGUAGES=eng
+TESSERACT_OCR_LANGUAGES=eng,spa
 
 echo "Unpacking Tesseract-OCR binaries"
 mkdir -p $INSTALL_DIR
