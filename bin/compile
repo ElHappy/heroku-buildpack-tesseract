@@ -21,7 +21,7 @@ then
   do
     lang="${array[i]}"
     echo $lang 'training data'
-    curl -LJO https://github.com/tesseract-ocr/tessdata/raw/main/$lang.traineddata && mv $lang.traineddata $TESSERACT_OCR_DIR/share/tessdata/
+    cd $TESSERACT_OCR_DIR/share/tessdata/ && curl -LJO https://github.com/tesseract-ocr/tessdata/raw/main/$lang.traineddata
   done
 fi
 
