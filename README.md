@@ -29,5 +29,5 @@ MIT License.
 Original work Copyright (c) 2013 Marco Azimonti  
 Modified work Copyright (c) 2015 Matteo Maggioni  
 Modified work Copyright (c) 2015 Oswell Chan  
-Modified work Copyright (c) 2018 Malcolm Patterson
+Modified work Copyright (c) 2018 Malcolm Patterson  
 Modified work Copyright (c) 2023 El_Happy
